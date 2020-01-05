@@ -202,6 +202,9 @@ func calcExpression(expression string) (int, bool) {
 		case "<<":
 			expressionsAsIntSlice[i] = expressionsAsIntSlice[i] << uint(expressionsAsIntSlice[i+1])
 			expressionsAsIntSlice[i+1] = expressionsAsIntSlice[i]
+		case "^":
+			expressionsAsIntSlice[i] = expressionsAsIntSlice[i] ^ expressionsAsIntSlice[i+1]
+			expressionsAsIntSlice[i+1] = expressionsAsIntSlice[i]
 		}
 	}
 	//return most "right" element in slice
