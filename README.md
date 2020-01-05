@@ -22,8 +22,11 @@ The calculations are based on 64bit integer.
 
 ### Commands:
   - **quit** -> quits the program
-  - **NUMBER as** (**dec**/**bin**/**hex**) -> converts the given number into a binary, decimal or hexadecimal one
-    - f.e. `bx11 as dec` is going to return `3`
+  - **last** -> returns the last calculated value
   - **EXPRESSION** -> calculates the expression with valid C-type bitwise operations
     - f.e. `(0x11|1)>>2` is going to return `4`
-    - currently supported bitwise operations are: `| & >> << ~` Read more about bitwise operations [here](https://en.wikipedia.org/wiki/Bitwise_operations_in_C)
+    - currently supported bitwise operations are: `| & >> << ~ ^` Read more about bitwise operations [here](https://en.wikipedia.org/wiki/Bitwise_operations_in_C)
+  - **NUMBER as** (**dec**/**bin**/**hex**) -> converts the given number into a binary, decimal or hexadecimal one
+    - f.e. `bx11 as dec` is going to return `3`
+  - **last as** (**dec**/**bin**/**hex**) -> converts the last calculated value into the given format
+  - **EXPRESSION as** (**dec**/**bin**/**hex**) -> first evaluates the expression and then converts the output directly to the given format
