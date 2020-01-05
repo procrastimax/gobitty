@@ -1,6 +1,10 @@
 # gobitty
 A simple terminal based calculator for bitwise operations
 
+## Installation
+In an existing Go environment just clone this repo into your go/src folder.
+After this go into the folder of this repository and type `go run main.go` or `go build` into your commandline.
+
 ## Usage
 There are no program parameters to pass.
 Just start the executable and you are ready to go!
