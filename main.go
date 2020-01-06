@@ -111,6 +111,9 @@ func convertNumberToOutputFormat(inputNumber int, outputFormat string) string {
 }
 
 func convertInputToInt(input string) (int, bool) {
+	if input == "last" {
+		return lastResult, true
+	}
 	//remove any (maybe) existing parenthesis
 	input = strings.ReplaceAll(input, "(", "")
 	input = strings.ReplaceAll(input, ")", "")
