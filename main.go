@@ -13,6 +13,10 @@ import (
 	"github.com/golang-collections/collections/stack"
 )
 
+//TODO:
+// - add calculation with 'last' like 'last | 0xff'
+// - change last when requesting a 'as' value so when 0x2 as dec -> last is 2
+
 type expression struct {
 	value      int
 	expression string
@@ -41,7 +45,6 @@ func main() {
 // decimal ist just a normal input number 1234
 // hexadecimal needs to have 0x before so -> 0x1234
 // binary numbers need bx10101010 with MSB input
-//
 func handleInput(input string) string {
 	switch {
 	// quit command
