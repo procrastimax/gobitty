@@ -14,7 +14,6 @@ import (
 )
 
 //TODO:
-// - add calculation with 'last' like 'last | 0xff'
 // - change last when requesting a 'as' value so when 0x2 as dec -> last is 2
 
 type expression struct {
@@ -60,6 +59,10 @@ func handleInput(input string) string {
 	// return last element
 	case input == "last":
 		return strconv.Itoa(lastResult)
+
+		// clear screen
+	case input == "clear":
+		return "\033[H\033[2J"
 
 	// conversions
 	case strings.Contains(input, " as "):
@@ -250,4 +253,10 @@ func parseCalculationExpression(input string) ([]expression, bool) {
 		counter++
 	}
 	return expressionSlice, true
+}
+
+func clearScreen(lines int) {
+	for i := 0; i < lines; i++ {
+		fmt.Println()
+	}
 }
