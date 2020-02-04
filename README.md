@@ -30,3 +30,4 @@ The calculations are based on 64bit integer.
     - f.e. `bx11 as dec` is going to return `3`
   - **last as** (**dec**/**bin**/**hex**) -> converts the last calculated value into the given format
   - **EXPRESSION as** (**dec**/**bin**/**hex**) -> first evaluates the expression and then converts the output directly to the given format
+  - **+ - * /** -> normal mathematical integer operator

@@ -87,7 +87,7 @@ func handleInput(input string) string {
 		return convertNumberToOutputFormat(inputNumber, params[1])
 
 	// calculations
-	case strings.ContainsAny(input, "&|^><~"):
+	case strings.ContainsAny(input, "&|^><~+-*/"):
 		result, ok := calculateValue(input)
 		if ok != true {
 			return "Could not apply bitwise operation!"
@@ -181,7 +181,7 @@ func calculateValue(input string) (int, bool) {
 }
 
 func calcExpression(expression string) (int, bool) {
-	operatorRegex := regexp.MustCompile("\\||&|\\^|>>|<<")
+	operatorRegex := regexp.MustCompile("\\||&|\\^|>>|<<|\\+|-|\\*|\\/")
 	operatorSplit := operatorRegex.Split(expression, -1)
 	operatorSlices := operatorRegex.FindAllString(expression, -1)
 
@@ -213,6 +213,18 @@ func calcExpression(expression string) (int, bool) {
 			expressionsAsIntSlice[i+1] = expressionsAsIntSlice[i]
 		case "^":
 			expressionsAsIntSlice[i] = expressionsAsIntSlice[i] ^ expressionsAsIntSlice[i+1]
+			expressionsAsIntSlice[i+1] = expressionsAsIntSlice[i]
+		case "+":
+			expressionsAsIntSlice[i] = expressionsAsIntSlice[i] + expressionsAsIntSlice[i+1]
+			expressionsAsIntSlice[i+1] = expressionsAsIntSlice[i]
+		case "-":
+			expressionsAsIntSlice[i] = expressionsAsIntSlice[i] - expressionsAsIntSlice[i+1]
+			expressionsAsIntSlice[i+1] = expressionsAsIntSlice[i]
+		case "*":
+			expressionsAsIntSlice[i] = expressionsAsIntSlice[i] * expressionsAsIntSlice[i+1]
+			expressionsAsIntSlice[i+1] = expressionsAsIntSlice[i]
+		case "/":
+			expressionsAsIntSlice[i] = expressionsAsIntSlice[i] / expressionsAsIntSlice[i+1]
 			expressionsAsIntSlice[i+1] = expressionsAsIntSlice[i]
 		}
 	}
