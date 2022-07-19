@@ -51,6 +51,10 @@ func handleInput(input string) string {
 		fmt.Println("Quitting")
 		os.Exit(0)
 		return ""
+	case input == "exit":
+		fmt.Println("Quitting")
+		os.Exit(0)
+		return ""
 
 	// help command
 	case input == "help":
